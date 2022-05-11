@@ -26,7 +26,7 @@ class pencari(multiprocessing.Process):
     def run(self):
         while True:
             if (self.queue.empty()):
-                print("Tidak Ada Bangunan yang tersedia saat ini :(")
+                print("Tidak Ada Kost atau Kontrakan yang tersedia saat ini")
                 break
             else :
                 time.sleep(2)
