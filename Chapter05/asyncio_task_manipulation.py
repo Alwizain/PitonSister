@@ -2,41 +2,44 @@
 
 import asyncio
 
-
+# kemungkinan susunan duduk 7 orang pada ruang rapat - factorial
 @asyncio.coroutine
-def factorial(number):
+def anggota(number):
     fact = 1
     for i in range(2, number + 1):
-        print('Asyncio.Task: Compute factorial(%s)' % i)
+        print('Asyncio.Task: Total anggota rapat yang sudah memasuki ruangan adalah %s' % i)
         yield from asyncio.sleep(1)
         fact *= i
-    print('Asyncio.Task - factorial(%s) = %s' % (number, fact))
+    print('\n -------------HASIL--------------- \n')
+    print('Asyncio.Task - Kemungkinan susunan duduk dari %s anggota = %s kemungkinan' % (number, fact))
 
 
+# Menentukan suku ke-7 dari bilangan 1,1,2,3,5,8,... - fibonacci
 @asyncio.coroutine
-def fibonacci(number):
-    a, b = 0, 1
+def sukuN(number):
+    a, b = 1, 1
     for i in range(number):
-        print('Asyncio.Task: Compute fibonacci(%s)' % i)
+        print('Asyncio.Task: Membaca suku ke-%s' % i)
         yield from asyncio.sleep(1)
         a, b = b, a + b
-    print('Asyncio.Task - fibonacci(%s) = %s' % (number, a))
+    print('Asyncio.Task - Hasil suku ke-%s adalah bilangan %s' % (number, a))
 
 
+# Menentukan jumlah cara 6 dari 20 orang terpilih sebagai staff IT - binomial coefficient (kombinasi)
 @asyncio.coroutine
-def binomial_coefficient(n, k):
+def staffIT(n, k):
     result = 1
     for i in range(1, k + 1):
         result = result*(n - i + 1)/i
-        print('Asyncio.Task: Compute binomial_coefficient(%s)' % i)
+        print('Asyncio.Task: Memilih orang ke-%s' % i)
         yield from asyncio.sleep(1)
-    print('Asyncio.Task - binomial_coefficient(%s, %s) = %s' % (n, k, result))
+    print('Asyncio.Task - Jadi jumlah cara dalam memilih dari %s orang menjadi %s orang terpilih adalah %s' % (n, k, result))
 
 
 if __name__ == '__main__':
-    task_list = [asyncio.Task(factorial(10)),
-                 asyncio.Task(fibonacci(10)),
-                 asyncio.Task(binomial_coefficient(20, 10))]
+    task_list = [asyncio.Task(anggota(7)),
+                 asyncio.Task(sukuN(6)),
+                 asyncio.Task(staffIT(20, 6))]
     loop = asyncio.get_event_loop()
     loop.run_until_complete(asyncio.wait(task_list))
     loop.close()
