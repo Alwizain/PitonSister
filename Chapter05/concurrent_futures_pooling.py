@@ -39,4 +39,4 @@ if __name__ == '__main__':
     with concurrent.futures.ProcessPoolExecutor(max_workers=5) as executor:
         for i in number_list:
             executor.submit(hasil, i)
-    print('Process Pool Execution = %s seconds' % (time.clock() - start_time))
+    print('Process Pool Execu1tion = %s seconds' % (time.clock() - start_time))

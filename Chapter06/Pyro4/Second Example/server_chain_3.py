@@ -14,5 +14,5 @@ ns = Pyro4.locateNS()
 ns.register(servername, uri)
 
 # enter the service loop.
-print("server_%s started " % current_server)
+print("server_%s telah aktif " % current_server)
 daemon.requestLoop()

@@ -11,11 +11,11 @@ class Chain(object):
         if self.current_server is None:
             self.current_server = Pyro4.core.Proxy("PYRONAME:example.chainTopology." + self.current_serverName)
         if self.name in message:
-            print("Back at %s; the chain is closed!" % self.name)
-            return ["complete at " + self.name]
+            print("Kembali ke server %s; pengiriman pesan sudah selesai!" % self.name)
+            return ["pengiriman pesan selesai pada " + self.name]
         else:
-            print("%s forwarding the message to the object %s" % (self.name, self.current_serverName))
+            print("%s pesan dikirimkan ke server %s" % (self.name, self.current_serverName))
             message.append(self.name)
             result = self.current_server.process(message)
-            result.insert(0, "passed on from " + self.name)
+            result.insert(0, "dikirim dari server " + self.name)
             return result

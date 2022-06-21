@@ -21,5 +21,5 @@ while True :
         l =f.read(1024)
         f.close()
         print ('Donesending')
-        conn.send('->Thank you for connecting'.encode())
+        conn.send('->Terima kasih'.encode())
         conn.close()
