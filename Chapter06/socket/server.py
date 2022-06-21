@@ -14,7 +14,7 @@ serversocket.listen(5)
 # establish a connection
 while True:	
     clientsocket,addr=serversocket.accept()
-    print ("Connected with[addr],[port]%s"%str(addr))
+    print ("Berhasil terhubung dengan client [addr],[port]%s"%str(addr))
     currentTime=time.ctime(time.time())+"\r\n"
     clientsocket.send(currentTime.encode('ascii'))
     clientsocket.close()
