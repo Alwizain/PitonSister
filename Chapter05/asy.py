@@ -7,7 +7,7 @@ def first_coroutine(future, num):
     count = 0
     for i in range(1, num + 1):
         count += 1
-    yield from asyncio.sleep(4)
+    yield from asyncio.sleep(3)
     future.set_result('First coroutine (sum of N ints) result = %s' % count)
 
 
