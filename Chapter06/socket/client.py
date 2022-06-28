@@ -11,4 +11,4 @@ s.connect((host,port))
 # Receive no more than 1024 bytes
 tm=s.recv(1024)
 s.close()
-print ("Time connection server:%s"%tm.decode('ascii'))
+print ("Terhubung dengan server pada :%s"%tm.decode('ascii'))
